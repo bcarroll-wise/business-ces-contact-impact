@@ -1,386 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business CES & Support Contact Impact on Follow-On Transactions</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            color: #0E0F0C;
-            background: #FFFFFF;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 48px 24px;
-        }
-        header {
-            background: #163300;
-            color: #FFFFFF;
-            padding: 64px 24px;
-            margin-bottom: 48px;
-        }
-        header .container {
-            padding: 0;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        header h1 {
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 12px;
-        }
-        header .subtitle {
-            font-size: 16px;
-            color: #9FE870;
-            font-weight: 500;
-        }
-        header .meta {
-            margin-top: 16px;
-            font-size: 14px;
-            color: rgba(255,255,255,0.7);
-        }
-
-        .headline-banner {
-            background: #F5F5F5;
-            border-left: 4px solid #9FE870;
-            padding: 24px 32px;
-            margin-bottom: 48px;
-            border-radius: 0 8px 8px 0;
-        }
-        .headline-banner p {
-            font-size: 18px;
-            font-weight: 500;
-            color: #163300;
-        }
-
-        .stat-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-        .stat-card {
-            background: #F5F5F5;
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-        }
-        .stat-card .value {
-            font-size: 28px;
-            font-weight: 700;
-            color: #163300;
-        }
-        .stat-card .label {
-            font-size: 13px;
-            color: #454745;
-            margin-top: 4px;
-        }
-        .stat-card.highlight {
-            background: #163300;
-        }
-        .stat-card.highlight .value {
-            color: #9FE870;
-        }
-        .stat-card.highlight .label {
-            color: rgba(255,255,255,0.8);
-        }
-
-        h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #163300;
-            margin-bottom: 16px;
-            margin-top: 48px;
-            letter-spacing: -0.01em;
-        }
-        h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #163300;
-            margin-bottom: 12px;
-            margin-top: 32px;
-        }
-        p {
-            font-size: 16px;
-            color: #454745;
-            margin-bottom: 16px;
-        }
-
-        .chart-container {
-            margin: 32px 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(14,15,12,0.1);
-            background: #FFFFFF;
-            border: 1px solid #F5F5F5;
-        }
-        .chart-container img {
-            width: 100%;
-            display: block;
-        }
-        .chart-container .caption {
-            padding: 12px 20px;
-            font-size: 13px;
-            color: #6A6C6A;
-            background: #F5F5F5;
-        }
-
-        .insight-box {
-            background: #FFFFFF;
-            border-left: 4px solid #FFEB69;
-            padding: 16px 24px;
-            margin: 24px 0;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 1px 2px rgba(14,15,12,0.05);
-        }
-        .insight-box p {
-            font-size: 14px;
-            color: #454745;
-            margin-bottom: 0;
-        }
-        .insight-box strong {
-            color: #163300;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0 32px;
-            font-size: 14px;
-        }
-        thead th {
-            background: #163300;
-            color: #FFFFFF;
-            padding: 12px 16px;
-            text-align: left;
-            font-weight: 600;
-        }
-        tbody td {
-            padding: 10px 16px;
-            border-bottom: 1px solid #F5F5F5;
-        }
-        tbody tr:hover {
-            background: #F5F5F5;
-        }
-        .sig { color: #2F5711; font-weight: 600; }
-        .ns { color: #6A6C6A; }
-
-        .model-output {
-            background: #F5F5F5;
-            border-radius: 8px;
-            padding: 20px 24px;
-            font-family: Menlo, Monaco, 'Courier New', monospace;
-            font-size: 12px;
-            line-height: 1.5;
-            overflow-x: auto;
-            margin: 16px 0 32px;
-            color: #0E0F0C;
-        }
-
-        .caveats {
-            background: #F5F5F5;
-            border-radius: 12px;
-            padding: 24px 32px;
-            margin-top: 32px;
-        }
-        .caveats ol {
-            padding-left: 20px;
-        }
-        .caveats li {
-            font-size: 14px;
-            color: #454745;
-            margin-bottom: 8px;
-        }
-
-        footer {
-            margin-top: 64px;
-            padding-top: 24px;
-            border-top: 1px solid #F5F5F5;
-            font-size: 13px;
-            color: #6A6C6A;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business CES &amp; Support Contact Impact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest:#163300; --bright:#9FE870; --yellow:#FFEB69;
+    --ink:#0E0F0C; --muted:#454745; --bg:#FFFFFF; --neutral:#F5F5F5; --border:#E4E7E4;
+  }
+  * { box-sizing:border-box; }
+  body { font-family:'Inter',-apple-system,sans-serif; color:var(--ink); background:var(--neutral);
+         margin:0; line-height:1.6; }
+  .wrap { max-width:900px; margin:0 auto; padding:0 24px 80px; background:var(--bg); }
+  header { background:var(--forest); color:#fff; margin:0 -24px 32px; padding:48px 24px 40px; }
+  header h1 { margin:0 0 8px; font-size:30px; font-weight:700; line-height:1.2; }
+  header .meta { color:var(--bright); font-size:14px; font-weight:500; }
+  header p.sub { color:#D7E8C8; margin:14px 0 0; font-size:16px; max-width:680px; }
+  h2 { font-size:23px; font-weight:700; margin:40px 0 8px; padding-top:20px; border-top:2px solid var(--border); color:var(--forest); }
+  h3 { font-size:18px; font-weight:600; margin:24px 0 6px; }
+  .prose p { margin:10px 0; color:#1c1d1a; }
+  .prose ul { margin:10px 0; padding-left:22px; }
+  .prose li { margin:4px 0; }
+  strong { color:var(--forest); }
+  code { background:var(--neutral); padding:1px 6px; border-radius:5px; font-size:90%;
+          font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  figure.chart { margin:24px 0; background:#fff; border:1px solid var(--border);
+                  border-radius:14px; padding:16px; }
+  figure.chart img { width:100%; height:auto; display:block; border-radius:8px; }
+  figure.chart figcaption { margin-top:10px; font-size:13px; color:var(--muted); text-align:center; }
+  .headline { background:var(--bright); color:var(--forest); border-radius:14px;
+               padding:20px 24px; margin:28px 0; font-size:18px; font-weight:600; }
+  footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--border);
+            color:var(--muted); font-size:13px; }
+  footer a { color:var(--forest); }
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Business CES & Support Contact Impact on Follow-On Transactions</h1>
-            <div class="subtitle">Global KYC & Onboarding — Business Verification</div>
-            <div class="meta">Bryan Carroll &middot; June 2026 &middot; n = 11,920 business profiles</div>
-        </div>
-    </header>
+<div class="wrap">
+<header>
+  <div class="meta">FRICTION MEASUREMENT · BUSINESS VERIFICATION</div>
+  <h1>Business CES &amp; Support Contact Impact on Follow-On Transactions</h1>
+  <p class="sub">Is support-contact rate a valid proxy for user experience during KYC onboarding? Matched-cohort analysis of CES, KYC support contacts, and follow-on transaction behaviour.</p>
+</header>
 
-    <div class="container">
-        <div class="headline-banner">
-            <p>Contact rate is confounded by intent: contacted users report worse experience (CES 5.46 vs 5.67) but make 30% more follow-on transfers. CES isolates the true friction signal that contact rate cannot.</p>
-        </div>
+<div class="headline">Contacted users report worse experience (lower CES) yet transact more — contact rate confounds intent/need with experience. CES isolates the friction signal contact rate cannot.</div>
 
-        <div class="stat-cards">
-            <div class="stat-card highlight">
-                <div class="value">+8.0%</div>
-                <div class="label">Follow-on transfers per CES point</div>
-            </div>
-            <div class="stat-card highlight">
-                <div class="value">+9.4%</div>
-                <div class="label">Follow-on value per CES point</div>
-            </div>
-            <div class="stat-card">
-                <div class="value">+30.4%</div>
-                <div class="label">More transfers if contacted (intent confound)</div>
-            </div>
-            <div class="stat-card">
-                <div class="value">p = 0.44</div>
-                <div class="label">CES × Contact interaction (not significant)</div>
-            </div>
-        </div>
+<div class="prose"><h3>Support Contact Rate as a measure of User Experience.</h3>
+<p>We currently track &quot;support contact rate&quot; as a key metric. This is a critical measure of cost and important to measure.</p>
+<p>I want to assess whether or not we can safely use support contact rate as a proxy for user experience. To do this I&#x27;ve utilised the CES score and the follow on transactions/transaction volume.</p>
+<p>This builds on the prior analysis which showed that CES was associated with follow on transfer count and volume - higher CES scores were associated with ~7-8% increase in transaction count and volume. So it follows that if contacting support is also associated with lower CES scores, and similarly reduced transaction volumes, contact rate could be a good proxy of user experience.</p>
+<p>To do this, I created two groups:</p>
+<ul>
+<li>users who started verification, contacted support for a &quot;kyc&quot; reason, and then took the survey</li>
+<li>users who started verification, did not contact support, and then took the survey</li>
+</ul>
+<p>Getting these groups right was fairly tricky, and also very important to the outcome. To ensure that this is measuring the right thing, the support contact has to happen AFTER verification start, and BEFORE the survey.</p>
+<p>Narrowing down the user group with this strict requirement means that I was not able to do this analysis for personal verification, as the numbers were not there.</p>
+<p>There are also two subsets of this user group - those who were transacting before verification (existing users) and those who were not (new users). The analysis counts the post contact transactions for both groups.</p>
+<p><strong>Findings &amp; Implications</strong></p>
+<ul>
+<li>Users who contact suppport DO have lower CES scores. i.e., contacting support is a worse experience than not having to contact support</li>
+<li>However, users who contact support have MUCH higher follow on transaction rates</li>
+<li>This is because contacting support is a signal that <strong>confounds intent/need with the experience</strong>.</li>
+<li>As a result, using support contact rate to describe user experience is only partially correct. Importantly, increases or decreases to contact rate COULD indicate a change to user experience, but it could also indicate a mix-shift in who is making it through the experience.</li>
+<li>CES captures the experience perception in all cases. So, if you&#x27;re launching a change and want to assess the impact on user experience, it&#x27;d be better to ship the CES survey and measure that rather than relying solely on contact rate.</li>
+</ul></div>
+<div class="prose"><p>To start, since this is sampled data and a specific subset of the audience, I ran the same model that looks at CES -&gt; follow on transactions. Fortunately, the relationship is almost identical to the prior set, with ~7% follow on transaction per CES point association.</p>
+<p>While this confirms that the CES/worse outcomes association holds true, it shows a substantially different than expected relationship between having a support experience and follow on outcome:</p>
+<ul>
+<li>The hypothesis was that support contact would be a worse experience and therefore worse follow on economic outcomes.</li>
+<li>This shows the opposite, at an extremely high (~+60%) magnitude.</li>
+</ul></div>
+<figure class="chart">
+  <img src="Visualisations/ces_score_by_contact_status.png" alt="CES score by KYC contact status">
+  <figcaption>CES score by KYC contact status</figcaption>
+</figure>
+<figure class="chart">
+  <img src="Visualisations/followon_transfers_paradox.png" alt="The paradox: worse CES but more follow-on transfers">
+  <figcaption>The paradox: worse CES but more follow-on transfers</figcaption>
+</figure>
+<div class="prose"><p>What seems to be happening here is that while the CES relationship is the same, hthe baseline value between contacting support and not contacting support groups are shifted, with those who contact support having a much higher baseline. This is evidence of the intent/need confounding the model.</p></div>
+<figure class="chart">
+  <img src="Visualisations/meenakshi_hypothesis_ces_contact.png" alt="Follow-on count &amp; value by CES category × contact">
+  <figcaption>Follow-on count &amp; value by CES category × contact</figcaption>
+</figure>
+<div class="prose"><p>This relationship can be seen more clearly in this visualisation:</p>
+<ul>
+<li>while lower/higher CES scores have lower/higher median transfer counts and values, the audience who contacts support tends to be higher in number and value across the board.</li>
+</ul></div>
+<figure class="chart">
+  <img src="Visualisations/ces_distribution_by_contact_status.png" alt="CES score distribution by contact status">
+  <figcaption>CES score distribution by contact status</figcaption>
+</figure>
+<figure class="chart">
+  <img src="Visualisations/conversion_rate_by_contact_status.png" alt="Conversion rate by contact status">
+  <figcaption>Conversion rate by contact status</figcaption>
+</figure>
+<div class="prose"><p>Looking at the conversion rate, there is further evidence of a confound. While we might expect people who have a support contact to fail verification at a higher rate, for this audience we see the opposite, with a substantially higher rate of conversion for those who have a support contact.</p>
+<p>This is further evidence that there is an intent/need confound at play.</p></div>
+<figure class="chart">
+  <img src="Visualisations/time_to_second_transfer.png" alt="Time to 2nd transfer by contact status &amp; CES (95% CI)">
+  <figcaption>Time to 2nd transfer by contact status &amp; CES (95% CI)</figcaption>
+</figure>
+<div class="prose"><p>This shows that having a support contact does create some engagement hesitancy - the users that do need support have a slightly greater time to a second post-contact transfer than those who do not. CES also predicts this, to a greater extent, as the median days to a second transfer are higher at lower CES scores within groups.</p></div>
+<div class="prose"><h3>Testing whether user tenure (new vs existing) drives the effect</h3>
+<p>Recall from the outset that there are two sub-groups within this populations - those that had prior transfers and had to go through verification again, and those who were starting fresh.</p>
+<p>It&#x27;s reasonable to assume that the existing users are skewing these results, as they are more embedded in their account and thus would have a higher intent to complete even when faced with a support experience.</p>
+<p><strong>What the data shows (matched cohort, n≈2,900):</strong> tenure matters, but <em>not</em> in the way the hypothesis predicted.</p>
+<ul>
+<li><strong>Tenure is a real main effect</strong> — existing users make meaningfully more follow-on transfers than new users, holding CES, platform and contact constant.</li>
+</ul>
+<ul>
+<li><strong>But it does not moderate the contact effect</strong> — the contact × tenure interaction is <em>not</em> significant, and the contact association is actually at least as strong for <strong>new</strong> users as for existing ones. Contact&#x27;s positive link to volume holds in the same direction for both groups.</li>
+</ul>
+<p>In other words: existing users have more post-contact transactions, but removing this cohort from the group wouldn&#x27;t change the overall finding; that change in baseline doesn&#x27;t impact the outcome that contact rate is confounded by intent/need.</p></div>
+<figure class="chart">
+  <img src="Visualisations/followon_by_ces_contact_tenure_slopes.png" alt="Median follow-on across CES, by contact × tenure">
+  <figcaption>Median follow-on across CES, by contact × tenure</figcaption>
+</figure>
 
-        <h2>Key Findings</h2>
-        <table>
-            <thead>
-                <tr><th>Outcome</th><th>Signal</th><th>Notes</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>CES → follow-on transfer count</td><td class="sig">+8.0% per point ***</td><td>NegBin model, n=9,409</td></tr>
-                <tr><td>CES → follow-on transfer value</td><td class="sig">+9.4% per point ***</td><td>Gamma GLM, n=9,034</td></tr>
-                <tr><td>KYC contact → transfer count</td><td class="sig">+30.4% ***</td><td>Intent confound — not a friction signal</td></tr>
-                <tr><td>CES × Contact interaction</td><td class="ns">ns (p=0.44)</td><td>CES slope identical regardless of contact</td></tr>
-                <tr><td>Contact → conversion rate</td><td class="sig">Higher for contacted</td><td>χ² significant — intent dominates</td></tr>
-                <tr><td>Contact → time to 2nd transfer</td><td class="sig">Contacted users slower</td><td>Hesitancy visible in timing, masked in volume</td></tr>
-            </tbody>
-        </table>
-
-        <h2>The Paradox: Worse Experience, More Transactions</h2>
-        <p>Users who contacted KYC support report statistically significantly lower CES scores — indicating worse experience. Yet they go on to make more follow-on transfers and convert at a higher rate.</p>
-
-        <div class="chart-container">
-            <img src="Visualisations/ces_score_by_contact_status.png" alt="Bar chart showing mean CES score is lower for users who had KYC contact vs those who did not">
-            <div class="caption">Contacted users report lower CES (5.46 vs 5.67), indicating worse perceived experience during onboarding.</div>
-        </div>
-
-        <div class="insight-box">
-            <p><strong>Why?</strong> Users who reach out to support during business verification have higher underlying intent — their business need forces them to persist through friction. This intent confounds contact rate as an experience proxy.</p>
-        </div>
-
-        <div class="chart-container">
-            <img src="Visualisations/followon_transfers_paradox.png" alt="Two panel chart showing contacted users make more follow-on transfers despite worse CES, and CES predicts outcomes in both groups">
-            <div class="caption">Left: Contacted users make more follow-on transfers. Right: CES predicts outcomes in both groups, but the contacted baseline is shifted up by intent.</div>
-        </div>
-
-        <h2>CES Distribution & Conversion</h2>
-
-        <div class="chart-container">
-            <img src="Visualisations/ces_distribution_by_contact_status.png" alt="Grouped bar chart of CES score distribution showing contacted users skew slightly lower">
-            <div class="caption">CES distribution by contact status — contacted users have a slightly heavier left tail (more low scores).</div>
-        </div>
-
-        <div class="chart-container">
-            <img src="Visualisations/conversion_rate_by_contact_status.png" alt="Bar chart showing higher conversion rate for contacted users">
-            <div class="caption">Conversion rate (proportion who transacted post-survey) is higher for contacted users — further evidence of the intent confound.</div>
-        </div>
-
-        <h2>Time to Second Transfer: The Hesitancy Signal</h2>
-        <p>While volume metrics are confounded by intent, <strong>timing</strong> reveals the true friction cost. Contacted users take longer to return for their second transfer — the bad experience creates hesitancy even though intent eventually brings them back.</p>
-
-        <div class="chart-container">
-            <img src="Visualisations/time_to_second_transfer.png" alt="Two panel chart showing contacted users take longer to make their second transfer, but at CES=7 both groups converge">
-            <div class="caption">Left: Contacted users have a longer gap to 2nd transfer. Right: At CES=7, both groups converge — excellent experience eliminates hesitancy regardless of contact history.</div>
-        </div>
-
-        <div class="insight-box">
-            <p><strong>The CES=7 convergence is the key insight.</strong> When experience is excellent, it doesn't matter whether you had a support contact or not — the hesitancy disappears. Contact only creates drag when paired with mediocre or poor experience.</p>
-        </div>
-
-        <h2>Regression Models</h2>
-
-        <h3>Follow-On Transfer Count (Negative Binomial)</h3>
-        <div class="model-output">
-Model type: NegBin (n=9,409, followon_count winsorized at p95=336)
-
-Parameter                          Coef   Rate Ratio    p-value  Sig
-----------------------------------------------------------------------
-  CES_SCORE                      0.0766        1.080     0.0000  ***
-  HAD_KYC_CONTACT                0.2655        1.304     0.0000  ***
-  C(PLATFORM)[T.WEB]             0.0774        1.080     0.0424    *
-
-→ Each +1 CES point ≈ +8.0% more follow-on transfers
-→ Having a KYC contact (holding CES constant) ≈ +30.4% more follow-on transfers
-        </div>
-
-        <h3>Follow-On Transfer Value (Gamma GLM, log-link)</h3>
-        <div class="model-output">
-n=9,034, winsorized at p95=£1,063,331
-
-Parameter                          Coef   Multiplier    p-value  Sig
-----------------------------------------------------------------------
-  CES_SCORE                      0.0900        1.094     0.0000  ***
-  HAD_KYC_CONTACT                0.2316        1.261     0.0000  ***
-  C(PLATFORM)[T.WEB]             0.3366        1.400     0.0000  ***
-
-→ Each +1 CES point ≈ +9.4% more follow-on transfer value
-→ Having a KYC contact (holding CES constant) ≈ +26.1% more follow-on value
-        </div>
-
-        <h3>Interaction Model (CES × Contact Status)</h3>
-        <div class="model-output">
-Model type: NegBin (n=9,409)
-
-Parameter                               Coef   Rate Ratio    p-value  Sig
----------------------------------------------------------------------------
-  CES_SCORE                           0.0839        1.088     0.0000  ***
-  HAD_KYC_CONTACT                     0.3361        1.399     0.0006  ***
-  CES_SCORE:HAD_KYC_CONTACT          -0.0123        0.988     0.4444   ns
-
-Stratified CES effect:
-  Not contacted: +8.8% per CES point
-  Contacted:     +7.4% per CES point
-
-→ Interaction NOT significant: CES slope is the same for both groups.
-→ Contact status shifts the baseline (intent) but doesn't moderate CES → outcomes.
-        </div>
-
-        <h2>Interpretation</h2>
-        <h3>Intent vs. Experience</h3>
-        <p><strong>Intent determines <em>whether</em> users come back. Experience determines <em>how quickly</em>.</strong></p>
-        <p>Support-seeking users have higher underlying intent (business need forces them to use Wise), so their total transfer volume ends up higher despite worse experience. The experience/friction signal appears in:</p>
-        <ul style="padding-left: 20px; margin-bottom: 16px; color: #454745;">
-            <li>Reduced median CES for contacted users</li>
-            <li>Longer time to second transfer (hesitancy)</li>
-            <li>The CES=7 convergence — when experience is excellent, contact history stops mattering</li>
-        </ul>
-
-        <h3>Why Contact Rate Fails as a Proxy</h3>
-        <ol style="padding-left: 20px; margin-bottom: 16px; color: #454745;">
-            <li>Conflates intent with experience — high-intent users contact support <em>and</em> transact heavily</li>
-            <li>True cost of poor experience isn't visible in volume (intent masks it) — visible only in <strong>time to return</strong></li>
-            <li>CES captures the friction dimension that contact rate cannot isolate</li>
-        </ol>
-
-        <h2>Caveats</h2>
-        <div class="caveats">
-            <ol>
-                <li>Observational — contact status is not randomly assigned; contacted users differ in intent and complexity</li>
-                <li>CES is measured at a single point during onboarding drop-off; does not capture full longitudinal experience</li>
-                <li>Sample limited to users who received and responded to the drop-off survey (selection bias)</li>
-                <li>No controls for business size, industry, or country</li>
-                <li>Follow-on window is unbounded — later analysis should cap at 30/60/90 days</li>
-            </ol>
-        </div>
-
-        <h2>Implication</h2>
-        <p>Contact rate conflates intent with experience and cannot serve as a standalone proxy for user friction. A direct, validated experience measure (CES) is required to isolate the friction signal. This supports the case for maintaining CES measurement in the Business Verification onboarding flow.</p>
-
-        <footer>
-            <p>Global KYC & Onboarding — Business Verification &middot; Bryan Carroll &middot; June 2026</p>
-            <p style="margin-top: 8px;">Data: Snowflake (ANALYTICS_DB) &middot; Survey: Business Onboarding Verification Drop-Off CES &middot; Period: Dec 2024+</p>
-        </footer>
-    </div>
+<footer>
+  Quantitative UX Research · Global KYC &amp; Onboarding · Wise<br>
+  Source notebook and queries: <a href="https://github.com/bcarroll-wise/business-ces-contact-impact">github.com/bcarroll-wise/business-ces-contact-impact</a>
+</footer>
+</div>
 </body>
 </html>
