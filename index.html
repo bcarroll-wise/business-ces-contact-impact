@@ -62,12 +62,24 @@
 <p>There are also two subsets of this user group - those who were transacting before verification (existing users) and those who were not (new users). The analysis counts the post contact transactions for both groups.</p>
 <p><strong>Findings &amp; Implications</strong></p>
 <ul>
-<li>Users who contact suppport DO have lower CES scores. i.e., contacting support is a worse experience than not having to contact support</li>
-<li>However, users who contact support have MUCH higher follow on transaction rates</li>
+<li>Users who contact suppport DO have lower CES scores. i.e., <em>contacting support is a worse experience than not having to contact support</em></li>
+<li>However, users who contact support have <strong>MUCH higher</strong> follow on transaction rates. This is the opposite of what we&#x27;d expect given the lower CES score.</li>
 <li>This is because contacting support is a signal that <strong>confounds intent/need with the experience</strong>.</li>
 <li>As a result, using support contact rate to describe user experience is only partially correct. Importantly, increases or decreases to contact rate COULD indicate a change to user experience, but it could also indicate a mix-shift in who is making it through the experience.</li>
-<li>CES captures the experience perception in all cases. So, if you&#x27;re launching a change and want to assess the impact on user experience, it&#x27;d be better to ship the CES survey and measure that rather than relying solely on contact rate.</li>
-</ul></div>
+<li>A purpose built perception measure - in this case, CES - captures the experience perception regardless of intent. So, if you&#x27;re launching a change and need to assess the impact on user experience, <em>it&#x27;d be better to ship a specific perception measure and measure that rather than relying solely on contact rate</em>.</li>
+</ul>
+<h3>This just sounds like mental gymnastics, what&#x27;s the harm in simply using Contact Rate? You said it&#x27;s a worse experience, so what&#x27;s the problem?</h3>
+<p>As a hypothetical, imagine we decide we&#x27;ve had enough of support spending and ship a UI that tells people &quot;Don&#x27;t bother contacting support, we&#x27;re not going to help you, get lost.&quot; The people who weren&#x27;t going to contact support would continue not to do so, and the people who would have will stop.</p>
+<ul>
+<li>Contact rate goes down.</li>
+<li>But that&#x27;s obviously a worse experience, and those people who we&#x27;re now churning would have had more engagement over the long run.</li>
+</ul>
+<p>That&#x27;s obviously a crazy scenario. But, it&#x27;s not impossible that we ship a UI that <strong>inadvertently</strong> tells people the same thing. Even with everyone full of good intent to make a better user experience, translating intent to perception in product design is not a foolproof process. In this more realistic scenario:</p>
+<ul>
+<li>Contact rate would <strong>also</strong> drop, for the same reasons as the hypothetical scenario.</li>
+<li>Measuring contact rate alone, we&#x27;d have no way to know that the UI was actually a worse experience, and this damage wouldn&#x27;t show up until months later in the follow-on transactions numbers.</li>
+</ul>
+<p>The perception measure gives the instant, undistorted signal that we got the experience right or wrong.</p></div>
 <div class="prose"><p>To start, since this is sampled data and a specific subset of the audience, I ran the same model that looks at CES -&gt; follow on transactions. Fortunately, the relationship is almost identical to the prior set, with ~7% follow on transaction per CES point association.</p>
 <p>While this confirms that the CES/worse outcomes association holds true, it shows a substantially different than expected relationship between having a support experience and follow on outcome:</p>
 <ul>
@@ -121,6 +133,15 @@
   <img src="Visualisations/followon_by_ces_contact_tenure_slopes.png" alt="Median follow-on across CES, by contact × tenure">
   <figcaption>Median follow-on across CES, by contact × tenure</figcaption>
 </figure>
+<div class="prose"><h2>Understanding CES&#x27;s ability to measure the experience impact of a Support Contact</h2>
+<p>As shown above, CES is lower, all things equal, for those who have a Support Contact experience compared to those who do not. Comparing the models, this becomes clear; the effect of support contact is attitudinal, whereas the downstream financial impact appears driven by the intent confound - which is why controlling for CES increases the contact-volume association rather than shrinking it.</p>
+<p>This data shows that the CES measure is effective at detecting this kind of experience impact. I.e., the latent trait that CES is designed to measure, and the impact of having a support contact experience are aligned. Compare this to evidence-related friction, which didn&#x27;t have a similar effect, and you can start to see the lines within which CES is most useful.</p>
+<p>However, like the evidence analysis, this data shows that there are many other factors that shape how people perceive the experience (low R^2).</p></div>
+<figure class="chart">
+  <img src="Visualisations/contact_mediation_dumbbell.png" alt="Contact's effect on follow-on volume, with vs without CES">
+  <figcaption>Contact&#x27;s effect on follow-on volume, with vs without CES (mediation)</figcaption>
+</figure>
+<div class="prose"><p><strong>Note on the CES model fit.</strong> Contact (plus controls) explains only ~3% of CES variance (R²=0.029). This does <em>not</em> weaken the mediation finding — contact reliably <em>shifts</em> CES (−0.66 points, p&lt;0.001); it&#x27;s just a small <em>component</em> of an individual&#x27;s overall score, which is dominated by everything else in the experience (fees, speed, trust, disposition). The same ~3% appears in the evidence analysis, and reinforces the programme thesis: any single operational driver is a minor ingredient of a global effort score, so detecting and acting on a <em>specific</em> driver calls for a targeted measure rather than the blunt aggregate.</p></div>
 
 <footer>
   Quantitative UX Research · Global KYC &amp; Onboarding · Wise<br>

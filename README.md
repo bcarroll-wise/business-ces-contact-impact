@@ -18,6 +18,8 @@ Investigates whether support contact rate during KYC onboarding is a valid proxy
 | Tenure (existing vs new) → volume | +22% *** | Existing users transact more overall (baseline shift) |
 | Contact → conversion | New users +17pp; existing already near ceiling | Odds ratios magnified by ceiling; same intent confound |
 | Contact → time to 2nd transfer | Contacted users slightly slower | Hesitancy signal visible in timing, masked in volume |
+| Contact → CES (mediation) | −0.66 points *** | CES detects the attitudinal hit; controlling for it *increases* the contact-volume link, confirming the intent confound |
+| Contact + controls → CES variance | R²=0.029 | Contact is a small *component* of CES; experience is dominated by other drivers (same ~3% as evidence analysis) |
 
 ## Method
 
